@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style>
         body {
             font-family: 'Lato', sans-serif;
@@ -29,7 +32,8 @@
         }
 
         .lang.active {
-            color: #4CAF50;
+            font-weight: bold;
+            color: #4B7CAD;
         }
 
         .navbar-dark .navbar-toggler-icon {
@@ -75,6 +79,45 @@
 
         /* 4 */
     </style>
+    <script>
+        $(function () {
+            var languages = {};
+            function loadLanguage(lang = 'en') {
+                if (typeof languages.id === "undefined") {
+                    $.ajax({
+                        url: 'lang.txt',
+                        success: function (res) {
+                            var res = JSON.parse(res);
+                            if (res[lang]) {
+                                $.each(res[lang], function (index, val) {
+                                    $('#' + index).html(val);
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    $.each(languages[lang], function (index, val) {
+                        $('#' + index).html(val);
+                        console.log(val);
+                    })
+                }
+            }
+            $('.lang').click(function () {
+                $('.lang').removeClass('active');
+                $(this).addClass('active');
+                loadLanguage($(this).attr('data-value'));
+            })
+
+            var contactElem = document.getElementById('area-5-1');
+
+            $('.to-contact').click(function () {
+                contactElem.scrollIntoView();
+                return false;
+            })
+
+            loadLanguage('en');
+        })
+    </script>
     <title>AGUNG MAKMUR LOGISTIK</title>
 </head>
 
@@ -110,7 +153,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#customer" style="text-decoration: none; margin-top: 15px;">
-                                <p class="text-13 text-body" id="menu-m3">CUSTOMER</p>
+                                <p class="text-13 text-body" id="menu-m4">CUSTOMER</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -123,6 +166,9 @@
                                 <p class="text-13 text-body" id="menu-m6">CONTACT</p>
                             </a>
                         </li>
+                        <div style="position: absolute;right:15px;">
+							<span class="lang active" data-value="en" href="#">EN</span> / <span href="#" class="lang" data-value="id">ID</span>
+						</div>
                     </ul>
                 </div>
             </div>
@@ -136,10 +182,10 @@
         <div class="container card-img-overlay">
             <div class="container3">
                 <p class="card-text">
-                    <span style="font-size: 40px;">Customs Clearance <br /> Inland Transport <br /> Freight Forwarding
+                    <span style="font-size: 40px;" id="home-1">Customs Clearance <br /> Inland Transport <br /> Freight Forwarding
                         Services</span> <br />
                     <a href="#about">
-                        <button type="button" class="btn btn-light" style="margin-top: 20px;font-weight: bold;">Learn
+                        <button id="home-2" type="button" class="btn btn-light" style="margin-top: 20px;font-weight: bold;">Learn
                             More</button></a>
                 </p>
             </div>
@@ -149,8 +195,8 @@
     <!-- ABOUT -->
     <div class="container" id="about">
         <div class="mb-4" style="padding: 100px 0px;">
-            <h1 class="mb-4 text-center">ABOUT US</h1>
-            <p style="margin-top: 80px; font-size: 20px; line-height: 30px;text-align: center;">
+            <h1 class="mb-4 text-center"><span id="about-1">ABOUT US</span></h1>
+            <p style="margin-top: 80px; font-size: 20px; line-height: 30px;text-align: center;" id="about-2">
                 PT. Agung Makmur Logistik has been established as a freight forwarding, customs broker and supply chain
                 logistics in indonesia since 2014 and we are now growing with 3 branches and representative offices in
                 Jakarta, Surabaya & Semarang. We have the competence and qualifications in the field of handling customs
@@ -162,7 +208,7 @@
     <!-- Service -->
     <div style="background-color:rgba(0, 69, 139, 0.7);" id="service">
         <div class="container" style="padding-bottom: 100px;">
-            <h1 class="mb-4 text-center text-white" style="padding-top: 100px;">SERVICE</h1>
+            <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="service-1">SERVICE</span></h1>
             <div class="row" style="margin-top: 80px;">
                 <div class="col-md-6">
                     <div class="card boxx" style="padding: 10px;">
@@ -170,7 +216,7 @@
                             <i class="fas fa-shipping-fast"
                                 style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
                             <h5 class="card-title" style="font-size: 25px;">Freight Forwarding</h5>
-                            <p class="card-text">Providing sea freight, air freight, FCL, LCL, ex-work, restuffed-inter
+                            <p class="card-text" id="service-2">Providing sea freight, air freight, FCL, LCL, ex-work, restuffed-inter
                                 island transshipment</p>
                         </div>
                     </div>
@@ -181,7 +227,7 @@
                             <i class="fas fa-file-alt"
                                 style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
                             <h5 class="card-title" style="font-size: 25px;">Customs Handling</h5>
-                            <p class="card-text">Experts in regards to all customs regulations and procedures both for
+                            <p class="card-text" id="service-3">Experts in regards to all customs regulations and procedures both for
                                 export and import.</p>
                         </div>
                     </div>
@@ -194,7 +240,7 @@
                             <i class="fas fa-truck-moving"
                                 style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
                             <h5 class="card-title" style="font-size: 25px;">Inland Transport</h5>
-                            <p class="card-text">Land transport by many types of land transporters such as trucks and
+                            <p class="card-text" id="service-4">Land transport by many types of land transporters such as trucks and
                                 trains.</p>
                         </div>
                     </div>
@@ -204,7 +250,7 @@
                         <div class="card-body text-center">
                             <i class="fas fa-pallet" style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
                             <h5 class="card-title" style="font-size: 25px;">Reefer Logistics</h5>
-                            <p class="card-text">Covers the whole refrigerated logistics chain include restuffing on
+                            <p class="card-text" id="service-5">Covers the whole refrigerated logistics chain include restuffing on
                                 frozen. <br /></p>
                         </div>
                     </div>
@@ -221,7 +267,8 @@
                 <div class="card mb-3 boxx" style="box-shadow: none;">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo midea.jpg" alt="Card image" style="width:60%;">
+                            <img class="card-img-top" src="assets/logo midea.jpg" alt="Card image"
+                                style="width:60%;">
                             <div class="card-body text-center" style="padding: 10px;">
                                 <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. MIDEA PLANET
                                     INDONESIA</h5>
@@ -298,7 +345,8 @@
                 <div class="card mb-3 boxx" style="box-shadow: none;">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-bervin.png" alt="Card image" style="width: 50%;">
+                            <img class="card-img-top" src="assets/logo-bervin.png" alt="Card image"
+                                style="width: 50%;">
                             <div class="card-body">
                                 <h5 class="card-title" style="font-size: 12px;">PT. BERVIN INDONESIA</h5>
                                 <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Electronic
@@ -653,7 +701,7 @@
     <!-- Team -->
     <div style="background-color:rgba(0, 69, 139, 0.7);" id="team">
         <div class="container" style="justify-content: center;">
-            <h1 class="mb-4 text-center text-white" style="padding-top: 100px;">OUR TEAM</h1>
+            <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="team-1">OUR TEAM</span></h1>
             <div style="margin-top: 80px;padding-bottom: 100px;">
                 <div class="card mb-3 boxx-team">
                     <div class="row">
@@ -663,7 +711,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title" style="margin-top: 40px;">Director</h5>
+                                <h5 class="card-title" style="margin-top: 40px;"><span id="team-2">Director</span></h5>
                                 <p class="card-text">
                                     Tri Sutrisno BCHK<br>
                                     agungmakmur61@gmail.com
@@ -680,7 +728,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title" style="margin-top: 40px;">Finance Manager</h5>
+                                <h5 class="card-title" style="margin-top: 40px;"><span id="team-3">Finance Manager</span></h5>
                                 <p class="card-text">
                                     Ditta Febriany, S.Si.Kom<br>
                                     ditta.agungmakmur@gmail.com
@@ -697,7 +745,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title" style="margin-top: 40px;">Sales & Marketing</h5>
+                                <h5 class="card-title" style="margin-top: 40px;"><span id="team-4">Sales & Marketing</span></h5>
                                 <p class="card-text">
                                     Herry Lesmana<br>
                                     mitraharapan_mkt@yahoo.com
@@ -712,7 +760,7 @@
 
     <!-- Contact -->
     <div class="container" id="contact">
-        <h1 class="mb-4 text-center" style="padding-top: 100px;">CONTACT US</h1>
+        <h1 class="mb-4 text-center" style="padding-top: 100px;"><span id="contact-1">CONTACT US</span></h1>
         <div class="card mb-3 boxx" style="margin-top: 60px;max-width: 350px; box-shadow: none;">
             <div class="row">
                 <div class="col-md-2">
@@ -720,8 +768,8 @@
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
-                        Open Hours<br>
-                        <span style="font-weight: 500;">
+                        <span id="contact-2">Open Hours</span><br>
+                        <span style="font-weight: 500;" id="contact-3">
                             Monday - Friday: 08.30 - 18.30<br>
                             Saturday: 08.30 - 12.00
                         </span>
