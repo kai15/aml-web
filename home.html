@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/ico" href="assets/aml-logo.gif" />
+    <link rel="icon" type="image/ico" href="assets/aml-logo.gif"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style>
         body {
             font-family: 'Lato', sans-serif;
@@ -77,11 +78,189 @@
             font-weight: bold;
         }
 
-        /* 4 */
+        #floating-button {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #db4437;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            cursor: pointer;
+            box-shadow: 0px 2px 5px #666;
+        }
+
+        .plus {
+            color: white;
+            position: absolute;
+            top: 0;
+            display: block;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            line-height: 55px;
+            font-size: 38px;
+            font-family: 'Roboto';
+            font-weight: 300;
+        }
+
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%4B7CAD' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+        }
+
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%4B7CAD' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+        }
+
+        #container-floating {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 30px;
+            right: 30px;
+            z-index: 50;
+        }
+
+        #container-floating:hover {
+            height: 400px;
+            width: 90px;
+            padding: 30px;
+        }
+
+        #container-floating:hover .plus {
+            animation: plus-in 0.15s linear;
+            animation-fill-mode: forwards;
+        }
+
+        .edit {
+            position: absolute;
+            top: 0;
+            display: block;
+            bottom: 0;
+            left: 0;
+            display: block;
+            right: 0;
+            padding: 0;
+            opacity: 0;
+            margin: auto;
+            line-height: 65px;
+            transform: rotateZ(-70deg);
+            transition: all 0.3s;
+            animation: edit-out 0.3s;
+        }
+
+        #container-floating:hover .edit {
+            animation: edit-in 0.2s;
+            animation-delay: 0.1s;
+            animation-fill-mode: forwards;
+        }
+
+        .nds {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: fixed;
+            z-index: 300;
+            transform: scale(0);
+            cursor: pointer;
+        }
+
+        .nd1 {
+            background: #d3a411;
+            right: 40px;
+            bottom: 120px;
+            animation-delay: 0.2s;
+            animation: bounce-out-nds 0.3s linear;
+            animation-fill-mode: forwards;
+        }
+
+        .nd3 {
+            background: #25D366;
+            right: 40px;
+            bottom: 180px;
+            animation-delay: 0.15s;
+            animation: bounce-out-nds 0.15s linear;
+            animation-fill-mode: forwards;
+        }
+
+        .nd4 {
+            background: #ba68c8;
+            right: 40px;
+            bottom: 240px;
+            animation-delay: 0.1s;
+            animation: bounce-out-nds 0.1s linear;
+            animation-fill-mode: forwards;
+        }
+
+        .nd5 {
+            background-image: url('https://lh3.googleusercontent.com/-X-aQXHatDQY/Uy86XLOyEdI/AAAAAAAAAF0/TBEZvkCnLVE/w140-h140-p/fb3a11ae-1fb4-4c31-b2b9-bf0cfa835c27');
+            background-size: 100%;
+            right: 40px;
+            bottom: 300px;
+            animation-delay: 0.08s;
+            animation: bounce-out-nds 0.1s linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes bounce-nds {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce-out-nds {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+
+        #container-floating:hover .nds {
+
+            animation: bounce-nds 0.1s linear;
+            animation-fill-mode: forwards;
+        }
+
+        #container-floating:hover .nd3 {
+            animation-delay: 0.08s;
+        }
+
+        #container-floating:hover .nd4 {
+            animation-delay: 0.15s;
+        }
+
+        #container-floating:hover .nd5 {
+            animation-delay: 0.2s;
+        }
+
+        .letter {
+            font-size: 23px;
+            color: white;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            line-height: 40px;
+        }
     </style>
     <script>
         $(function () {
             var languages = {};
+
             function loadLanguage(lang = 'en') {
                 if (typeof languages.id === "undefined") {
                     $.ajax({
@@ -102,6 +281,7 @@
                     })
                 }
             }
+
             $('.lang').click(function () {
                 $('.lang').removeClass('active');
                 $(this).addClass('active');
@@ -118,680 +298,739 @@
             loadLanguage('en');
         })
     </script>
-    <title>AGUNG MAKMUR LOGISTIK</title>
+    <title>Agung Makmur Logistik</title>
 </head>
 
-<body>
-    <header>
-        <div class="navbar navbar-expand-md navbar-dark" style="box-shadow: 0 20px 20px -5px rgba(0, 0, 0, 0.1)">
-            <div class="container d-flex justify-content-between">
-                <div class="row">
-                    <a class="navbar-brand"><img src="assets/aml-logo.gif"
-                            style="margin-top: -10px; width: 70px;" /></a>
-                    <div style="color: #545454;" class="collapse navbar-collapse"> PT. AGUNG MAKMUR LOGISTIK</div>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" style="flex-grow: unset;" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="#home" style="text-decoration: none; margin-top: 15px;">
-                                <p class="text-13 text-body" id="menu-m1">HOME</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about" style="text-decoration: none; margin-top: 15px;">
-                                <p class="text-13 text-body" id="menu-m2">ABOUT US</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#service" style="text-decoration: none; margin-top: 15px;">
-                                <p class="text-13 text-body" id="menu-m3">SERVICE</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#customer" style="text-decoration: none; margin-top: 15px;">
-                                <p class="text-13 text-body" id="menu-m4">CUSTOMER</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#team" style="text-decoration: none; margin-top: 15px;">
-                                <p class="text-13 text-body" id="menu-m5">TEAM</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact" style="text-decoration: none; margin-top: 15px;">
-                                <p class="text-13 text-body" id="menu-m6">CONTACT</p>
-                            </a>
-                        </li>
-                        <div style="position: absolute;right:15px;">
-							<span class="lang active" data-value="en" href="#">EN</span> / <span href="#" class="lang" data-value="id">ID</span>
-						</div>
-                    </ul>
-                </div>
+<body style="margin: 0;padding: 0">
+<header>
+    <div class="navbar navbar-expand-md navbar-dark" style="box-shadow: 0 20px 20px -5px rgba(0, 0, 0, 0.1)">
+        <div class="container d-flex justify-content-between">
+            <div class="row">
+                <a class="navbar-brand"><img src="assets/aml-logo.gif"
+                                             style="margin-top: -10px; width: 70px;"/></a>
+                <div style="color: #545454;" class="collapse navbar-collapse"> PT. AGUNG MAKMUR LOGISTIK</div>
             </div>
-        </div>
-    </header>
-
-    <!-- HOME -->
-    <div class="card bg-dark text-white">
-        <img class="card-img" src="assets/bg-home.png" style="height: 90vh;object-fit:cover;filter: brightness(50%);"
-            alt="Card image">
-        <div class="container card-img-overlay">
-            <div class="container3">
-                <p class="card-text">
-                    <span style="font-size: 40px;" id="home-1">Customs Clearance <br /> Inland Transport <br /> Freight Forwarding
-                        Services</span> <br />
-                    <a href="#about">
-                        <button id="home-2" type="button" class="btn btn-light" style="margin-top: 20px;font-weight: bold;">Learn
-                            More</button></a>
-                </p>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" style="flex-grow: unset;" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#home" style="text-decoration: none; margin-top: 15px;">
+                            <p class="text-13 text-body" id="menu-m1">HOME</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" style="text-decoration: none; margin-top: 15px;">
+                            <p class="text-13 text-body" id="menu-m2">ABOUT US</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service" style="text-decoration: none; margin-top: 15px;">
+                            <p class="text-13 text-body" id="menu-m3">OUR SERVICES</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#customer" style="text-decoration: none; margin-top: 15px;">
+                            <p class="text-13 text-body" id="menu-m4">CUSTOMER</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team" style="text-decoration: none; margin-top: 15px;">
+                            <p class="text-13 text-body" id="menu-m5">TEAM</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" style="text-decoration: none; margin-top: 15px;">
+                            <p class="text-13 text-body" id="menu-m6">CONTACT</p>
+                        </a>
+                    </li>
+                    <div style="position: absolute;right:15px;">
+                        <span class="lang active" data-value="en" href="#">EN</span> / <span href="#" class="lang"
+                                                                                             data-value="id">ID</span>
+                    </div>
+                </ul>
             </div>
         </div>
     </div>
+</header>
 
-    <!-- ABOUT -->
-    <div class="container" id="about">
-        <div class="mb-4" style="padding: 100px 0px;">
-            <h1 class="mb-4 text-center"><span id="about-1">ABOUT US</span></h1>
-            <p style="margin-top: 80px; font-size: 20px; line-height: 30px;text-align: center;" id="about-2">
-                PT. Agung Makmur Logistik has been established as a freight forwarding, customs broker and supply chain
-                logistics in indonesia since 2014 and we are now growing with 3 branches and representative offices in
-                Jakarta, Surabaya & Semarang. We have the competence and qualifications in the field of handling customs
-                services, cargo and transportation management services.
+<!-- HOME -->
+<div class="card bg-dark text-white">
+    <img class="card-img" src="assets/bg-home.png" style="height: 90vh;object-fit:cover;filter: brightness(50%);"
+         alt="Card image">
+    <div class="container card-img-overlay">
+        <div class="container3">
+            <p class="card-text">
+                    <span style="font-size: 40px;" id="home-1">Customs Clearance <br/> Inland Transport <br/> Freight Forwarding
+                        Services</span> <br><br><br>
+                <span>
+                    <i class="fas fa-clock" style="color:#FFF;font-size: 20px; padding: 5px"></i>
+                    <span id="home-3" style="font-size: 20px; font-weight: bold;">Open Hours</span><br>
+                    <span id="home-4" style="font-size: 18px; font-weight: normal;">Mon - Fri: 08.30 - 18.30 <br>Sat: 08.30 - 12.00</span>
+                </span>
             </p>
         </div>
     </div>
+</div>
 
-    <!-- Service -->
-    <div style="background-color:rgba(0, 69, 139, 0.7);" id="service">
-        <div class="container" style="padding-bottom: 100px;">
-            <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="service-1">SERVICE</span></h1>
-            <div class="row" style="margin-top: 80px;">
-                <div class="col-md-6">
-                    <div class="card boxx" style="padding: 10px;">
-                        <div class="card-body text-center">
-                            <i class="fas fa-shipping-fast"
-                                style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
-                            <h5 class="card-title" style="font-size: 25px;">Freight Forwarding</h5>
-                            <p class="card-text" id="service-2">Providing sea freight, air freight, FCL, LCL, ex-work, restuffed-inter
-                                island transshipment</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card boxx" style="padding: 10px;">
-                        <div class="card-body text-center">
-                            <i class="fas fa-file-alt"
-                                style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
-                            <h5 class="card-title" style="font-size: 25px;">Customs Handling</h5>
-                            <p class="card-text" id="service-3">Experts in regards to all customs regulations and procedures both for
-                                export and import.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 20px;">
-                <div class="col-md-6">
-                    <div class="card boxx" style="padding: 10px;">
-                        <div class="card-body text-center">
-                            <i class="fas fa-truck-moving"
-                                style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
-                            <h5 class="card-title" style="font-size: 25px;">Inland Transport</h5>
-                            <p class="card-text" id="service-4">Land transport by many types of land transporters such as trucks and
-                                trains.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card boxx" style="padding: 10px;">
-                        <div class="card-body text-center">
-                            <i class="fas fa-pallet" style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
-                            <h5 class="card-title" style="font-size: 25px;">Reefer Logistics</h5>
-                            <p class="card-text" id="service-5">Covers the whole refrigerated logistics chain include restuffing on
-                                frozen. <br /></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ABOUT -->
+<div class="container" id="about">
+    <div class="mb-4" style="padding: 100px 0px;">
+        <h1 class="mb-4 text-center"><span id="about-1">ABOUT US</span></h1>
+        <p style="margin-top: 80px; font-size: 20px; line-height: 30px;text-align: center;" id="about-2">
+            PT. Agung Makmur Logistik has been established as a freight forwarding, customs broker and supply chain
+            logistics in indonesia since 2014 and we are now growing with 3 branches and representative offices in
+            Jakarta, Surabaya & Semarang. We have the competence and qualifications in the field of handling customs
+            services, cargo and transportation management services.
+        </p>
     </div>
+</div>
 
-    <!-- Customer -->
-    <div class="container" id="customer">
-        <h1 class="mb-4 text-center" style="padding-top: 100px;">CUSTOMER</h1>
+<!-- Service -->
+<div style="background-color:rgba(0, 69, 139, 0.7);" id="service">
+    <div class="container" style="padding-bottom: 100px;">
+        <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="service-1">OUR SERVICES</span>
+        </h1>
         <div class="row" style="margin-top: 80px;">
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo midea.jpg" alt="Card image"
-                                style="width:60%;">
-                            <div class="card-body text-center" style="padding: 10px;">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. MIDEA PLANET
-                                    INDONESIA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import and Export -
-                                    Electronic</p>
-                            </div>
-                        </div>
+            <div class="col-md-6">
+                <div class="card boxx" style="padding: 10px;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shipping-fast"
+                           style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
+                        <h5 class="card-title" style="font-size: 25px;">Freight Forwarding</h5>
+                        <p class="card-text" id="service-2">Providing sea freight, air freight, FCL, LCL, ex-work,
+                            restuffed-inter
+                            island transshipment</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-3kom.jpg" alt="Card image">
-                            <div class="card-body text-center" style="padding: 10px;">
-                                <h5 class="card-title" style="padding-top: 10px; font-size: 12px;">PT. TRIMITRA
-                                    KOLABORASI MANDIRI</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Electronic</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 10px;">PT. GLOBALINDO KARYA
-                                    LESTARI</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - PVC</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" style="padding-top: 30px;" src="assets/logo-larasati.png"
-                                alt="Card image">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 30px;">PT. LARASATI SARANA
-                                    PRATAMA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Cooling Tower
-                                </p>
-                            </div>
-                        </div>
+            <div class="col-md-6">
+                <div class="card boxx" style="padding: 10px;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-file-alt"
+                           style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
+                        <h5 class="card-title" style="font-size: 25px;">Customs Handling</h5>
+                        <p class="card-text" id="service-3">Experts in regards to all customs regulations and procedures
+                            both for
+                            export and import.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-ants.png" alt="Card image"
-                                style="width: 65%;padding-top: 20px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 30px;">PT. ANUGERAH TOTAL
-                                    SEJAHTERA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Toys &
-                                    Medical Equipment</p>
-                            </div>
-                        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6">
+                <div class="card boxx" style="padding: 10px;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-truck-moving"
+                           style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
+                        <h5 class="card-title" style="font-size: 25px;">Inland Transport</h5>
+                        <p class="card-text" id="service-4">Land transport by many types of land transporters such as
+                            trucks and
+                            trains.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-bervin.png" alt="Card image"
-                                style="width: 50%;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px;">PT. BERVIN INDONESIA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Electronic
-                                </p>
-                            </div>
-                        </div>
+            <div class="col-md-6">
+                <div class="card boxx" style="padding: 10px;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-pallet" style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
+                        <h5 class="card-title" style="font-size: 25px;">Reefer Logistics</h5>
+                        <p class="card-text" id="service-5">Covers the whole refrigerated logistics chain include
+                            restuffing on
+                            frozen. <br/></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-elje.jpg" alt="Card image"
-                                style="padding-top: 20px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 20px;">PT. ELJE PERDANA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Safety</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-lumei.png" alt="Card image"
-                                style="width: 60%;padding-top: 20px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 20px;">PT. ANUGRAH LUMEI
-                                    RAYA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Bottled
-                                    Parfurme & Cosmetics</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. PASTIBA INDONESIA
-                                </h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Electronic
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. DAYA TUNAS
-                                    CEMERLANG</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - ATK, Breast
-                                    Pad & Breast Milk</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-planet.jpg" alt="Card image"
-                                style="padding-top: 10px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px;">PT. PLANET ELECTRINDO</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Electronic
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. DAMAI INTI SENTOSA
-                                </h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Sound System
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. BERVIN INDUSTRY
-                                    INDONESIA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Plastic Mould
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-gunindo-1.png" alt="Card image"
-                                style="width: 45%;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px;">PT. GUNINDO TRIMUKTI</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Stabilizer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. TORELLI BERKAT
-                                    ABADI</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - PVC</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. RAJAWALI BERKAT
-                                    ABADI</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Pharmacy</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. ELSON AUDIO
-                                    INDONESIA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Electronic</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-geoprima.png" alt="Card image"
-                                style="width: 70%;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. GEOPRIMA SOLUSI
-                                </h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Land Surveying
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-tbe.png" alt="Card image"
-                                style="width: 80%;padding-top: 25px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px;padding-top: 15px;">PT. TIGA BERLIAN
-                                    ELECTRIC</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Electronic</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-united.png" alt="Card image"
-                                style="width: 70%;padding-top: 10px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px;padding-top: 15px;">PT. UNITED
-                                    REFRIGERATION</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. TANDITAMA MANDIRI
-                                </h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Plastics
-                                    Ventilator</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-far.jpg" alt="Card image"
-                                style="width: 75%;margin-top: -25px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; margin-top: -45px;">PT. FAR EAST
-                                    REFRIGERATION INDONESIA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Electronic</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. NILANDA LAGONDER
-                                    RAYA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Bottled
-                                    Parfurme & Comestics</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px;padding-top: 5px;">PT. KIOLA LAGONDER
-                                    ABADI</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Bottled
-                                    Parfurme & Comestics</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. PILLAR BRITE CARE
-                                </h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Makeup &
-                                    Cotton Pad</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-khind.png" alt="Card image"
-                                style="padding-top: 25px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 10px;">PT. KHIND
-                                    ENVIRONMENTAL SOLUTIONS</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Fan</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. TRIADHARMA SOLUSI
-                                    SEJAHTERA</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Pet Ear & Pet
-                                    Gel</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3 boxx" style="box-shadow: none;">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <img class="card-img-top" src="assets/logo-wika.png" alt="Card image"
-                                style="padding-top: 25px;">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 12px;padding-top: 10px;">PT. WIJAYA KARYA
-                                    INDUSTRI & KONSTRUKSI</h5>
-                                <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Iron</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-bottom: 100px;">
         </div>
     </div>
+</div>
 
-    <!-- Team -->
-    <div style="background-color:rgba(0, 69, 139, 0.7);" id="team">
-        <div class="container" style="justify-content: center;">
-            <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="team-1">OUR TEAM</span></h1>
-            <div style="margin-top: 80px;padding-bottom: 100px;">
-                <div class="card mb-3 boxx-team">
-                    <div class="row">
-                        <div class="col-md-4" style="padding: 0px;">
-                            <img src="assets/tris.jpg" class="card-img"
-                                style="object-position: 0% 40%;object-fit: cover;max-height: 200px;" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title" style="margin-top: 40px;"><span id="team-2">Director</span></h5>
-                                <p class="card-text">
-                                    Tri Sutrisno BCHK<br>
-                                    agungmakmur61@gmail.com
-                                </p>
-                            </div>
+<!-- Customer -->
+<div class="container" id="customer">
+    <h1 class="mb-4 text-center" style="padding-top: 100px;">CUSTOMER</h1>
+    <div class="row" style="margin-top: 80px;">
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo midea.jpg" alt="Card image"
+                             style="width:60%;">
+                        <div class="card-body text-center" style="padding: 10px;">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. MIDEA PLANET
+                                INDONESIA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import and Export -
+                                Electronic</p>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3 boxx-team">
-                    <div class="row">
-                        <div class="col-md-4" style="padding: 0px;">
-                            <img src="assets/dita.jpg" class="card-img"
-                                style="object-position: 0% 0%;object-fit: cover; max-height: 200px;" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title" style="margin-top: 40px;"><span id="team-3">Finance Manager</span></h5>
-                                <p class="card-text">
-                                    Ditta Febriany, S.Si.Kom<br>
-                                    ditta.agungmakmur@gmail.com
-                                </p>
-                            </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-wika.png" alt="Card image"
+                             style="padding-top: 25px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px;padding-top: 10px;">PT. WIJAYA KARYA
+                                INDUSTRI & KONSTRUKSI</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Iron</p>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3 boxx-team">
-                    <div class="row">
-                        <div class="col-md-4" style="padding: 0px;">
-                            <img src="assets/heri2.jpg" class="card-img"
-                                style="object-position: 0% 30%;object-fit: cover;max-height: 200px;" alt="...">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-3kom.jpg" alt="Card image">
+                        <div class="card-body text-center" style="padding: 10px;">
+                            <h5 class="card-title" style="padding-top: 10px; font-size: 12px;">PT. TRIMITRA
+                                KOLABORASI MANDIRI</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Electronic</p>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title" style="margin-top: 40px;"><span id="team-4">Sales & Marketing</span></h5>
-                                <p class="card-text">
-                                    Herry Lesmana<br>
-                                    mitraharapan_mkt@yahoo.com
-                                </p>
-                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" style="padding-top: 30px;" src="assets/logo-larasati.png"
+                             alt="Card image">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 30px;">PT. LARASATI SARANA
+                                PRATAMA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Cooling Tower
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Contact -->
-    <div class="container" id="contact">
-        <h1 class="mb-4 text-center" style="padding-top: 100px;"><span id="contact-1">CONTACT US</span></h1>
-        <div class="card mb-3 boxx" style="margin-top: 60px;max-width: 350px; box-shadow: none;">
-            <div class="row">
-                <div class="col-md-2">
-                    <i class="fas fa-clock" style="color:#4B7CAD;font-size: 30px;"></i>
-                </div>
-                <div class="col-md-10">
-                    <p style="font-weight: bold;">
-                        <span id="contact-2">Open Hours</span><br>
-                        <span style="font-weight: 500;" id="contact-3">
-                            Monday - Friday: 08.30 - 18.30<br>
-                            Saturday: 08.30 - 12.00
-                        </span>
-                    </p>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-ants.png" alt="Card image"
+                             style="width: 65%;padding-top: 20px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 30px;">PT. ANUGERAH TOTAL
+                                SEJAHTERA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Toys &
+                                Medical Equipment</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-bervin.png" alt="Card image"
+                             style="width: 50%;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px;">PT. BERVIN INDONESIA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Electronic
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-elje.jpg" alt="Card image"
+                             style="padding-top: 20px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 20px;">PT. ELJE PERDANA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Safety</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-lumei.png" alt="Card image"
+                             style="width: 60%;padding-top: 20px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 20px;">PT. ANUGRAH LUMEI
+                                RAYA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Bottled
+                                Parfurme & Cosmetics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-gunindo-1.png" alt="Card image"
+                             style="width: 45%;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px;">PT. GUNINDO TRIMUKTI</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Stabilizer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-planet.jpg" alt="Card image"
+                             style="padding-top: 10px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px;">PT. PLANET ELECTRINDO</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Electronic
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-geoprima.png" alt="Card image"
+                             style="width: 70%;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. GEOPRIMA SOLUSI
+                            </h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Land Surveying
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-tbe.png" alt="Card image"
+                             style="width: 80%;padding-top: 25px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px;padding-top: 15px;">PT. TIGA BERLIAN
+                                ELECTRIC</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Electronic</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-united.png" alt="Card image"
+                             style="width: 70%;padding-top: 10px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px;padding-top: 15px;">PT. UNITED
+                                REFRIGERATION</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-far.jpg" alt="Card image"
+                             style="width: 75%;margin-top: -25px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; margin-top: -45px;">PT. FAR EAST
+                                REFRIGERATION INDONESIA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Electronic</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="card-img-top" src="assets/logo-khind.png" alt="Card image"
+                             style="padding-top: 25px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 10px;">PT. KHIND
+                                ENVIRONMENTAL SOLUTIONS</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Fan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. ELSON AUDIO
+                                INDONESIA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Electronic</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. PASTIBA INDONESIA
+                            </h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Electronic
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. DAYA TUNAS
+                                CEMERLANG</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - ATK, Breast
+                                Pad & Breast Milk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 10px;">PT. GLOBALINDO KARYA
+                                LESTARI</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - PVC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. DAMAI INTI SENTOSA
+                            </h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;"> Import - Sound System
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. BERVIN INDUSTRY
+                                INDONESIA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Plastic Mould
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. TORELLI BERKAT
+                                ABADI</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - PVC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. RAJAWALI BERKAT
+                                ABADI</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Pharmacy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. PILLAR BRITE CARE
+                            </h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Makeup &
+                                Cotton Pad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. TANDITAMA MANDIRI
+                            </h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Plastics
+                                Ventilator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. NILANDA LAGONDER
+                                RAYA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Bottled
+                                Perfume & Cosmetics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px;padding-top: 5px;">PT. KIOLA LAGONDER
+                                ABADI</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Bottled
+                                Perfume & Cosmetics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 boxx" style="box-shadow: none;">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="fas fa-building" style="color: #4B7CAD;font-size: 100px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 12px; padding-top: 5px;">PT. TRIADHARMA SOLUSI
+                                SEJAHTERA</h5>
+                            <p class="card-text" style="font-size: 12px; margin-top: -10px;">Import - Pet Ear & Pet
+                                Gel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 100px;">
+    </div>
+</div>
+
+<!-- Team -->
+<div style="background-color:rgba(0, 69, 139, 0.7);" id="team">
+    <div class="container" style="justify-content: center;">
+        <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="team-1">OUR TEAMS</span></h1>
+        <div style="margin-top: 80px;padding-bottom: 100px;">
+            <div class="card mb-3 boxx-team">
+                <div class="row">
+                    <div class="col-md-4" style="padding: 60px; text-align: center">
+                        <i class="fas fa-image" style="color: #4B7CAD;font-size: 100px;"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-top: 40px;"><span id="team-2">Director</span></h5>
+                            <p class="card-text">
+                                Tri Sutrisno BCHK<br>
+                                agungmakmur61@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 boxx-team">
+                <div class="row">
+                    <div class="col-md-4" style="padding: 60px; text-align: center">
+                        <i class="fas fa-image" style="color: #4B7CAD;font-size: 100px;"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-top: 40px;"><span id="team-3">Finance Manager</span>
+                            </h5>
+                            <p class="card-text">
+                                Ditta Febriany, S.Si.Kom<br>
+                                ditta.agungmakmur@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 boxx-team">
+                <div class="row">
+                    <div class="col-md-4" style="padding: 60px; text-align: center">
+                        <i class="fas fa-image" style="color: #4B7CAD;font-size: 100px;"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-top: 40px;"><span id="team-4">Sales & Marketing</span>
+                            </h5>
+                            <p class="card-text">
+                                Herry Lesmana<br>
+                                mitraharapan_mkt@yahoo.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Article-->
+<div class="container-fluid">
+    <div class="container" id="article" style="padding-bottom: 100px;">
+        <h1 class="mb-4 text-center" style="padding-top: 100px;"><span id="article-1">ARTICLE</span>
+        </h1>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top: -50px;">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div style="text-align: center; width: 100%;padding: 50px;background: #4B7CAD;margin-top: 80px;padding-top: 80px; color: #fff;">
+                        We provide land transport by many types of land transporters such as trucks and trains. <br>
+                        We have our own truck fleet and also have a reliable trucking feet network to fulfill all of our
+                        customer’s requirements.
+                        <br/><br/>
+                        <h5 style="font-weight: bold;">Inland Transport</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div style="text-align: center; width: 100%;padding: 50px;background: #4B7CAD;margin-top: 80px;padding-top: 80px; color: #fff;">
+                        We can save your time and trouble in customs issues handling.
+                        <br>
+                        Powered by our experts in regards to all customs regulations and procedures both for export and
+                        import.
+                        <br/><br/>
+                        <h5 style="font-weight: bold;">Customs Handling</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div style="text-align: center; width: 100%;padding: 50px;background: #4B7CAD;margin-top: 80px;padding-top: 80px; color: #fff;">
+                        We provide special care, expertise, and attention since project cargo shipments typically
+                        related to tight time-bound,
+                        <br/>
+                        hight valuable goods, and often with high-risk handling regards to heavy lift and oversize
+                        cargo.
+                        <br/><br/>
+                        <h5 style="font-weight: bold;">Project Cargo</h5>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only" style="color: red">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Contact -->
+<div style="background-color: rgba(0, 69, 139, 0.7);padding-bottom: 10px;" id="contact">
+    <div class="container">
+        <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="contact-1">CONTACT US</span></h1>
+        <div class="card mb-3 boxx" style="background-color: #4B7CAD;margin-top: 60px; box-shadow: none;">
+            <div class="embed-responsive embed-responsive-16by9"
+                 style="margin-bottom: 20px; background-color: #4B7CAD; align-self: center">
+                <iframe class="embed-responsive-item"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.1308417101!2d106.91715531514978!3d-6.113081661653928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a21d2c7590691%3A0xb4a4e1e9910f6e4c!2sPT%20Agung%20Makmur%20Logistik!5e0!3m2!1sen!2sid!4v1602785573708!5m2!1sen!2sid"
+                        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false"
+                        tabindex="0"></iframe>
+            </div>
+            <div class="row text-white" style="background-color: #4B7CAD">
                 <div class="col-md-2">
-                    <i class="fas fa-map-marked-alt" style="color:#4B7CAD;font-size: 30px;"></i>
+                    <i class="fas fa-map-marked-alt" style="color:#FFFFFF;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
                         JL. Kesemek No.11 RT.001/012 <br>
                         Kec. Cilincing, Kel.Semper Barat Tanjung Priok <br>
-                        JAKARTA UTARA <br>
-                        14310
+                        JAKARTA UTARA 14310 <br>
+                        021-24648498
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row text-white" style="background-color: #4B7CAD">
                 <div class="col-md-2">
-                    <i class="fas fa-phone-alt" style="color:#4B7CAD;font-size: 30px;"></i>
+                    <i class="fas fa-phone-alt" style="color:#FFFFFF;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
@@ -804,9 +1043,9 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row text-white" style="background-color: #4B7CAD">
                 <div class="col-md-2">
-                    <i class="fas fa-phone-alt" style="color:#4B7CAD;font-size: 30px;"></i>
+                    <i class="fas fa-phone-alt" style="color:#FFFFFF;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
@@ -815,9 +1054,9 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row text-white" style="background-color: #4B7CAD">
                 <div class="col-md-2">
-                    <i class="fas fa-phone-alt" style="color:#4B7CAD;font-size: 30px;"></i>
+                    <i class="fas fa-phone-alt" style="color:#FFFFFF;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
@@ -826,16 +1065,50 @@
                     </p>
                 </div>
             </div>
-            <div class="row" style="margin: 50px 0px;">
+            <div class="row text-white" style="background-color: #4B7CAD">
+                <div class="col-md-2">
+                    <i class="fas fa-phone-alt" style="color:#FFFFFF;font-size: 30px;"></i>
+                </div>
+                <div class="col-md-10">
+                    <p style="font-weight: bold;">
+                        Endro<br>
+                        <span style="font-weight: 500;">085211403536</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row text-white" style="background-color: #4B7CAD;margin: 50px 0px;">
                 <div class="col-md-12 text-center">
-                    <a href="https://www.instagram.com/agung.makmurlogistik/"><i class="fa fa-instagram"
-                            style="margin-right: 20px;color:#4B7CAD;font-size: 30px;"></i></a>
-                    <a href="http://www.agungmakmurlogistik.com/"><i class="fas fa-globe"
-                            style="color:#4B7CAD;font-size: 30px;"></i></a>
+                    <a href="https://web.whatsapp.com/send?phone=6281297247302" style="text-decoration: none;">
+                        <i class="fa fa-whatsapp" style="margin-right: 20px;color:#FFFFFF;font-size: 30px;"></i>
+                    </a>
+                    <a href="mailto:ditta.agungmakmur@gmail.com" style="text-decoration: none;">
+                        <i class="fas fa-envelope reg" style="margin-right: 20px;color:#FFFFFF;font-size: 30px;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/agung.makmurlogistik/" style="text-decoration: none;">
+                        <i class="fa fa-instagram" style="margin-right: 20px;color:#FFFFFF;font-size: 30px;"></i>
+                    </a>
+                    <a href="http://www.agungmakmurlogistik.com/" style="text-decoration: none;">
+                        <i class="fas fa-globe" style="color:#FFFFFF;font-size: 30px;"></i>
+                    </a>
                 </div>
             </div>
         </div>
+        <div id="container-floating">
+            <div class="nd3 nds" data-toggle="tooltip" data-placement="left" data-original-title="wa">
+                <a class="letter" target="_blank" href="https://web.whatsapp.com/send?phone=6281297247302"><i
+                        class="fas fa fa-whatsapp"></i></a>
+            </div>
+            <div class="nd1 nds" data-toggle="tooltip" data-placement="left" data-original-title="email">
+                <a class="letter" href="mailto:ditta.agungmakmur@gmail.com"><i class="fas fa fa-envelope"></i></a>
+            </div>
+
+            <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="menu">
+                <p class="plus"><i class="fas fa fa-comment-dots"></i></p>
+            </div>
+        </div>
     </div>
+</div>
+
 </body>
 
 </html>
