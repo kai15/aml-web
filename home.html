@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
@@ -25,6 +26,11 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        .font-roboto {
+            font-family: 'Roboto';
+            font-weight: bold;
         }
 
         .lang {
@@ -66,14 +72,6 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        .boxx-team {
-            border: none;
-            padding: 0px 10px;
-            max-width: 600px;
-            min-height: 200px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
         h5 {
             font-weight: bold;
         }
@@ -105,14 +103,6 @@
             font-size: 38px;
             font-family: 'Roboto';
             font-weight: 300;
-        }
-
-        .carousel-control-prev-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%4B7CAD' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-        }
-
-        .carousel-control-next-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%4B7CAD' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
         }
 
         #container-floating {
@@ -306,9 +296,12 @@
     <div class="navbar navbar-expand-md navbar-dark" style="box-shadow: 0 20px 20px -5px rgba(0, 0, 0, 0.1)">
         <div class="container d-flex justify-content-between">
             <div class="row">
-                <a class="navbar-brand"><img src="assets/aml-logo.gif"
-                                             style="margin-top: -10px; width: 70px;"/></a>
-                <div style="color: #545454;" class="collapse navbar-collapse"> PT. AGUNG MAKMUR LOGISTIK</div>
+                <a class="navbar-brand">
+                    <img src="assets/aml-logo.gif" style="margin-top: -10px; width: 70px;"/>
+                </a>
+                <div style="color: #545454;" class="collapse navbar-collapse font-roboto">
+                    PT. AGUNG MAKMUR LOGISTIK
+                </div>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -326,19 +319,24 @@
                             <p class="text-13 text-body" id="menu-m2">ABOUT US</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#service" style="text-decoration: none; margin-top: 15px;">
+                    <li class="nav-item dropdown" style="margin-bottom: -20px;">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+                           style="text-decoration: none; margin-top: 15px;">
                             <p class="text-13 text-body" id="menu-m3">OUR SERVICES</p>
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-top: -30px;">
+                            <a class="dropdown-item" href="#service">Freight Forwarding</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#service">Customs Clearance</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#service">Inland Transport</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#service">Reefer Logistics</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#customer" style="text-decoration: none; margin-top: 15px;">
                             <p class="text-13 text-body" id="menu-m4">CUSTOMER</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#team" style="text-decoration: none; margin-top: 15px;">
-                            <p class="text-13 text-body" id="menu-m5">TEAM</p>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -385,6 +383,46 @@
             Jakarta, Surabaya & Semarang. We have the competence and qualifications in the field of handling customs
             services, cargo and transportation management services.
         </p>
+        <div class="row" style="margin-top: 80px;">
+            <div class="col-md-5 text-center">
+                <img style="width: 90%;border-radius: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                     src="./assets/Office-v2.jpeg"/>
+            </div>
+            <div class="col-md-7">
+                <div class="card" style="border: none; padding: 10px;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-2x fa-star" style="color: #4B7CAD;"></i>
+                        <i class="fas fa-2x fa-star" style="color: #4B7CAD;"></i>
+                        <i class="fas fa-2x fa-star" style="color: #4B7CAD;"></i>
+                        <i class="fas fa-2x fa-star" style="color: #4B7CAD;"></i>
+                        <i class="fas fa-2x fa-star" style="color: #4B7CAD;"></i>
+                        <h4 class="card-title" style="font-weight: bold; margin-top: 15px;">
+                            100% Customer Satisfaction</h4>
+                        <p class="card-text" id="about-3">We offer an excellent service, in which we are attached to our
+                            customer’s needs and we always tried our best in the process of serving.</p>
+                    </div>
+                </div>
+                <div class="card" style="border: none; padding: 10px;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-3x fa-handshake" style="color: #4B7CAD;"></i>
+                        <h4 class="card-title" style="font-weight: bold; margin-top: 15px;">
+                            Good Relation with World Shipping</h4>
+                        <p class="card-text" id="about-4">In order to grab the worldwide range we have good relationship
+                            with most major carriers such as COSCO, Wan Hai Lines, Hapag Lloyd, CMACGM, OOCL, Evergreen
+                            Marine Corp, MSC, K-Line, KMTC and many more.</p>
+                    </div>
+                </div>
+                <div class="card" style="border: none; padding: 10px;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-3x fa-code-branch" style="color: #4B7CAD;"></i>
+                        <h4 class="card-title" style="font-weight: bold;margin-top: 15px;">
+                            Branches Network in Indonesia</h4>
+                        <p class="card-text" id="about-5">We develop 3 branches and representative offices in Indonesia
+                            such as Jakarta, Semarang & Surabaya.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -411,7 +449,7 @@
                     <div class="card-body text-center">
                         <i class="fas fa-file-alt"
                            style="color: #4B7CAD;font-size: 100px; margin-bottom: 10px;"></i>
-                        <h5 class="card-title" style="font-size: 25px;">Customs Handling</h5>
+                        <h5 class="card-title" style="font-size: 25px;">Customs Clearance</h5>
                         <p class="card-text" id="service-3">Experts in regards to all customs regulations and procedures
                             both for
                             export and import.</p>
@@ -888,69 +926,11 @@
     </div>
 </div>
 
-<!-- Team -->
-<div style="background-color:rgba(0, 69, 139, 0.7);" id="team">
-    <div class="container" style="justify-content: center;">
-        <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="team-1">OUR TEAMS</span></h1>
-        <div style="margin-top: 80px;padding-bottom: 100px;">
-            <div class="card mb-3 boxx-team">
-                <div class="row">
-                    <div class="col-md-4" style="padding: 60px; text-align: center">
-                        <i class="fas fa-image" style="color: #4B7CAD;font-size: 100px;"></i>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title" style="margin-top: 40px;"><span id="team-2">Director</span></h5>
-                            <p class="card-text">
-                                Tri Sutrisno BCHK<br>
-                                agungmakmur61@gmail.com
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3 boxx-team">
-                <div class="row">
-                    <div class="col-md-4" style="padding: 60px; text-align: center">
-                        <i class="fas fa-image" style="color: #4B7CAD;font-size: 100px;"></i>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title" style="margin-top: 40px;"><span id="team-3">Finance Manager</span>
-                            </h5>
-                            <p class="card-text">
-                                Ditta Febriany, S.Si.Kom<br>
-                                ditta.agungmakmur@gmail.com
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3 boxx-team">
-                <div class="row">
-                    <div class="col-md-4" style="padding: 60px; text-align: center">
-                        <i class="fas fa-image" style="color: #4B7CAD;font-size: 100px;"></i>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title" style="margin-top: 40px;"><span id="team-4">Sales & Marketing</span>
-                            </h5>
-                            <p class="card-text">
-                                Herry Lesmana<br>
-                                mitraharapan_mkt@yahoo.com
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!--Article-->
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: rgba(0, 69, 139, 0.7);">
     <div class="container" id="article" style="padding-bottom: 100px;">
-        <h1 class="mb-4 text-center" style="padding-top: 100px;"><span id="article-1">ARTICLE</span>
+        <h1 class="mb-4 text-center text-white" style="padding-top: 100px;">
+            <span id="article-1">ARTICLE</span>
         </h1>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top: -50px;">
             <ol class="carousel-indicators">
@@ -960,31 +940,38 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div style="text-align: center; width: 100%;padding: 50px;background: #4B7CAD;margin-top: 80px;padding-top: 80px; color: #fff;">
-                        We provide land transport by many types of land transporters such as trucks and trains. <br>
-                        We have our own truck fleet and also have a reliable trucking feet network to fulfill all of our
-                        customer’s requirements.
+                    <div style="text-align: center; width: 100%;padding: 50px;color: #fff;">
+                        <img style="transform: rotate(90deg);margin-top: -50px;"
+                             src="https://images.unsplash.com/photo-1531683760080-7bb28a630bd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=282&q=80"/>
+                        <p style="margin-top: -50px">We provide land transport by many types of land transporters such
+                            as trucks and trains. <br>
+                            We have our own truck fleet and also have a reliable trucking feet network to fulfill all of
+                            our customer’s requirements.</p>
                         <br/><br/>
                         <h5 style="font-weight: bold;">Inland Transport</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div style="text-align: center; width: 100%;padding: 50px;background: #4B7CAD;margin-top: 80px;padding-top: 80px; color: #fff;">
-                        We can save your time and trouble in customs issues handling.
-                        <br>
-                        Powered by our experts in regards to all customs regulations and procedures both for export and
-                        import.
+                    <div style="text-align: center; width: 100%;padding: 50px;padding-top: 95px;color: #fff;">
+                        <img style="width: 45%;margin-bottom: 30px;"
+                             src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"/>
                         <br/><br/>
-                        <h5 style="font-weight: bold;">Customs Handling</h5>
+                        <p>We can save your time and trouble in customs issues handling. <br>
+                            Powered by our experts in regards to all customs regulations and procedures both for export
+                            and import.</p>
+                        <br/><br/>
+                        <h5 style="font-weight: bold;">Customs Clearance</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div style="text-align: center; width: 100%;padding: 50px;background: #4B7CAD;margin-top: 80px;padding-top: 80px; color: #fff;">
-                        We provide special care, expertise, and attention since project cargo shipments typically
-                        related to tight time-bound,
-                        <br/>
-                        hight valuable goods, and often with high-risk handling regards to heavy lift and oversize
-                        cargo.
+                    <div style="text-align: center; width: 100%;padding: 50px;padding-top: 100px; color: #fff;">
+                        <img style="width: 55%;margin-bottom: 15px;"
+                             src="https://images.unsplash.com/photo-1554769944-3138b076c38a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"/>
+                        <br/><br/>
+                        <p> We provide special care, expertise, and attention since project cargo shipments typically
+                            related to tight time-bound, <br/>
+                            hight valuable goods, and often with high-risk handling regards to heavy lift and oversize
+                            cargo.</p>
                         <br/><br/>
                         <h5 style="font-weight: bold;">Project Cargo</h5>
                     </div>
@@ -1003,34 +990,34 @@
 </div>
 
 <!-- Contact -->
-<div style="background-color: rgba(0, 69, 139, 0.7);padding-bottom: 10px;" id="contact">
+<div style="padding-bottom: 10px;" id="contact">
     <div class="container">
-        <h1 class="mb-4 text-center text-white" style="padding-top: 100px;"><span id="contact-1">CONTACT US</span></h1>
-        <div class="card mb-3 boxx" style="background-color: #4B7CAD;margin-top: 60px; box-shadow: none;">
+        <h1 class="mb-4 text-center" style="padding-top: 100px;"><span id="contact-1">CONTACT US</span></h1>
+        <div class="card mb-3 boxx" style="margin-top: 60px; box-shadow: none;">
             <div class="embed-responsive embed-responsive-16by9"
-                 style="margin-bottom: 20px; background-color: #4B7CAD; align-self: center">
+                 style="margin-bottom: 20px; align-self: center">
                 <iframe class="embed-responsive-item"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.1308417101!2d106.91715531514978!3d-6.113081661653928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a21d2c7590691%3A0xb4a4e1e9910f6e4c!2sPT%20Agung%20Makmur%20Logistik!5e0!3m2!1sen!2sid!4v1602785573708!5m2!1sen!2sid"
                         width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
                         aria-hidden="false"
                         tabindex="0"></iframe>
             </div>
-            <div class="row text-white" style="background-color: #4B7CAD">
+            <div class="row">
                 <div class="col-md-2">
-                    <i class="fas fa-map-marked-alt" style="color:#FFFFFF;font-size: 30px;"></i>
+                    <i class="fas fa-map-marked-alt" style="color:#4B7CAD;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
                         JL. Kesemek No.11 RT.001/012 <br>
                         Kec. Cilincing, Kel.Semper Barat Tanjung Priok <br>
                         JAKARTA UTARA 14310 <br>
-                        021-24648498
+                        Phone: 021-24648498
                     </p>
                 </div>
             </div>
-            <div class="row text-white" style="background-color: #4B7CAD">
+            <div class="row">
                 <div class="col-md-2">
-                    <i class="fas fa-phone-alt" style="color:#FFFFFF;font-size: 30px;"></i>
+                    <i class="fas fa-phone-alt" style="color:#4B7CAD;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
@@ -1043,9 +1030,9 @@
                     </p>
                 </div>
             </div>
-            <div class="row text-white" style="background-color: #4B7CAD">
+            <div class="row">
                 <div class="col-md-2">
-                    <i class="fas fa-phone-alt" style="color:#FFFFFF;font-size: 30px;"></i>
+                    <i class="fas fa-phone-alt" style="color:#4B7CAD;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
@@ -1054,9 +1041,9 @@
                     </p>
                 </div>
             </div>
-            <div class="row text-white" style="background-color: #4B7CAD">
+            <div class="row">
                 <div class="col-md-2">
-                    <i class="fas fa-phone-alt" style="color:#FFFFFF;font-size: 30px;"></i>
+                    <i class="fas fa-phone-alt" style="color:#4B7CAD;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
@@ -1065,9 +1052,9 @@
                     </p>
                 </div>
             </div>
-            <div class="row text-white" style="background-color: #4B7CAD">
+            <div class="row">
                 <div class="col-md-2">
-                    <i class="fas fa-phone-alt" style="color:#FFFFFF;font-size: 30px;"></i>
+                    <i class="fas fa-phone-alt" style="color:#4B7CAD;font-size: 30px;"></i>
                 </div>
                 <div class="col-md-10">
                     <p style="font-weight: bold;">
@@ -1076,19 +1063,19 @@
                     </p>
                 </div>
             </div>
-            <div class="row text-white" style="background-color: #4B7CAD;margin: 50px 0px;">
+            <div class="row" style="margin: 50px 0px;">
                 <div class="col-md-12 text-center">
                     <a href="https://web.whatsapp.com/send?phone=6281297247302" style="text-decoration: none;">
-                        <i class="fa fa-whatsapp" style="margin-right: 20px;color:#FFFFFF;font-size: 30px;"></i>
+                        <i class="fa fa-whatsapp" style="margin-right: 20px;color:#4B7CAD;font-size: 30px;"></i>
                     </a>
                     <a href="mailto:ditta.agungmakmur@gmail.com" style="text-decoration: none;">
-                        <i class="fas fa-envelope reg" style="margin-right: 20px;color:#FFFFFF;font-size: 30px;"></i>
+                        <i class="fas fa-envelope reg" style="margin-right: 20px;color:#4B7CAD;font-size: 30px;"></i>
                     </a>
                     <a href="https://www.instagram.com/agung.makmurlogistik/" style="text-decoration: none;">
-                        <i class="fa fa-instagram" style="margin-right: 20px;color:#FFFFFF;font-size: 30px;"></i>
+                        <i class="fa fa-instagram" style="margin-right: 20px;color:#4B7CAD;font-size: 30px;"></i>
                     </a>
                     <a href="http://www.agungmakmurlogistik.com/" style="text-decoration: none;">
-                        <i class="fas fa-globe" style="color:#FFFFFF;font-size: 30px;"></i>
+                        <i class="fas fa-globe" style="color:#4B7CAD;font-size: 30px;"></i>
                     </a>
                 </div>
             </div>
@@ -1108,7 +1095,5 @@
         </div>
     </div>
 </div>
-
 </body>
-
 </html>
