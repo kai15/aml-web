@@ -9,7 +9,7 @@
 		"home-1": "Bea Cukai <br /> Transportasi Darat Jasa Pengiriman Barang",
 		"home-2": "Info Lebih Lanjut",
 		"home-3": "Jam Operasional",
-        "home-4": "Senin - Jumat: 08.30 - 18.30 <br> Sabtu: 08.30 - 12.00",
+        "home-4": "Senin - Jumat: 08.30 - 18.30 <br> Sabtu: 08.30 - 13.00",
 		"about-1": "TENTANG KAMI",
 		"about-2": "PT. Agung Makmur Logistik telah berdiri sebagai perusahaan jasa pengiriman barang, pialang bea cukai dan rantai pasokan logistik di Indonesia sejak tahun 2014 dan kami sekarang berkembang dengan 3 cabang dan kantor perwakilan di Jakarta, Surabaya & Semarang. Kami memiliki kompetensi dan kualifikasi di bidang jasa penanganan kepabeanan, kargo dan jasa manajemen transportasi.",
 		"service-1": "LAYANAN KAMI",
@@ -23,7 +23,7 @@
 		"team-4": "Sales & Marketing",
 		"contact-1": "KONTAK KAMI",
 		"contact-2": "Jam Operasional",
-		"contact-3": "Senin - Jumat: 08.30 - 18.30<br>Sabtu: 08.30 - 12.00"
+		"contact-3": "Senin - Jumat: 08.30 - 18.30<br>Sabtu: 08.30 - 13.00"
 	},
 	"en":{
 		"menu-m1":"HOME",
@@ -49,6 +49,6 @@
 		"team-4": "Sales & Marketing",
 		"contact-1": "CONTACT US",
 		"contact-2": "Open Hours",
-		"contact-3": "Monday - Friday: 08.30 - 18.30<br>Saturday: 08.30 - 13.00"
+		"contact-3": "Monday - Friday: 08.30 - 18.30 <br> Saturday: 08.30 - 13.00"
 	}
 }
