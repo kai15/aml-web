@@ -264,7 +264,7 @@
             function loadLanguage(lang = 'en') {
                 if (typeof languages.id === "undefined") {
                     $.ajax({
-                        url: 'lang.txt',
+                        url: 'lang.txt?v2',
                         success: function (res) {
                             var res = JSON.parse(res);
                             if (res[lang]) {
